@@ -62,6 +62,37 @@ Relationships
   Posts : Comments - One to many
   Comments : Comments - One to many
 
+  4.  System Goal(s)
+        Allow users to make orders that are composed of products and keep track of shipments. Each order should be recorded in a user's history.
+
+      Entities/Attributes/Types
+
+        Users: Username(string), email(string)
+        Orders: User foreign key
+        Shipments: Order foreign key, expected date(dateTime)
+        Products: description(string)
+        Orders/Products Join Table
+
+     Relationships
+
+       Order:Shipment - One to One (order owns shipment)
+       User:Order - One to Many
+       Order:Products - Many to Many
+
+     Bonus: If a user deletes their account, their order information remains in the database if they reactivate. If it is decided to delete the linked information, the orders associated with the deleted user's ID would be deleted and the corresponding entries in the shipments and Orders/Products join table would also be deleted.
 
 
+     4.  System Goal(s)
 
+           To be able to collect data on visitors and users, including things like link clicks, page views, and time on page. This information should also be tied to a given user.
+
+         Entities/Attributes/Types
+
+           Visitors: IP Address(something)  
+           Users: Email(string), Username(string), Password(string)
+           Pages: URL(string), Content(text)
+           Links: Target URL(string), Text(string)
+           Analytics: Page views(integer), Link clicks(integer), Time on Page(dateTime)
+           Pages/Links Join Table
+
+        Relationships
