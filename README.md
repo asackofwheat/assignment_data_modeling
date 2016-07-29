@@ -88,11 +88,16 @@ Relationships
 
          Entities/Attributes/Types
 
-           Visitors: IP Address(something)  
-           Users: Email(string), Username(string), Password(string)
+           Visitors: IP Address(string?)
+           Users: Email(string), Username(string), Password(string), Visitor Foreign Key
            Pages: URL(string), Content(text)
            Links: Target URL(string), Text(string)
-           Analytics: Page views(integer), Link clicks(integer), Time on Page(dateTime)
+           Page/Visitor Join Table: Time on page, Page views
+           Link/Visitor Join Table: Link clicks
            Pages/Links Join Table
 
         Relationships
+          Visitors:Users - One to one (User belongs to visitor)
+          Pages:Links - Many to many
+          Visitors:Pages - Many to many
+          Visitors:Links - Many to many
